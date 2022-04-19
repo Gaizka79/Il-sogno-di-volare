@@ -32,15 +32,20 @@ const militaryHelicopter = [
 
 class Gallery {
     constructor(civilImages, militaryImages) {
+        this.civilImages = civilImages;
+        this.militaryImages = militaryImages;
     }
     
     getRandomCivil() {
+        return this.civilImages[getRandom()];
     }
     
     getRandomMilitary() {
+        return this.militaryImages[getRandom()];
     }
     
     getAll() {
+        return this.militaryImages.concat(this.civilImages);
     }
 }
 
@@ -64,3 +69,7 @@ class Painter {
 const aircrafts = new Gallery(civilAircrafts, militaryAircrafts);
 const helicopters = new Gallery(civilHelicopters, militaryHelicopter);
 const painter = new Painter();
+
+let getRandom = () => {
+    return Math.floor(Math.random() * 5);
+};
