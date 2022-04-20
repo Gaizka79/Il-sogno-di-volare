@@ -35,15 +35,12 @@ class Gallery {
         this.civilImages = civilImages;
         this.militaryImages = militaryImages;
     }
-    
     getRandomCivil() {
         return this.civilImages[getRandom()];
     }
-    
     getRandomMilitary() {
         return this.militaryImages[getRandom()];
     }
-    
     getAll() {
         return this.militaryImages.concat(this.civilImages);
     }
@@ -51,18 +48,33 @@ class Gallery {
 
 class Painter {
     constructor() {
+        //this.gallery = this.createGallery();
     }
 
     createGallery() {
+        console.log("estamos en creategalery");
+        let sSection = document.createElement('section'),
+            sBody = document.querySelector('body');
+        sBody.appendChild(sSection).innerHTML = '<h3> KAIXO </h3>';
     }
 
     createImageTag(imageUrl) {
+        //painter.createImageTag(helicopters.getRandomCivil())
+        let sPicture = document.createElement('picture'),
+            sImg = document.createElement('img');
+        sImg.src = './' + imageUrl;
+        sPicture.appendChild(sImg);
+        document.querySelector('body').appendChild(sPicture);
+        console.log(sPicture);
     }
-
     paintSingleImage(imageUrl) {
+        this.createImageTag(imageUrl);
     }
+    paintMultipleImages(arrayOfImages) { 
+        for (let i=0; i<arrayOfImages.length; i++) {
+            this.createImageTag(arrayOfImages[i]);
+        }
 
-    paintMultipleImages(arrayOfImages) {
     }
 }
 
